@@ -3,14 +3,11 @@ class Image
 
   def initialize (row)
     @row = row
-    @image_values = [@row]
   end
 
   def output_image
-    @image_values.each do |x|
-      x.each do |y|
-        puts y.join("")
-      end
+    @row.each do |x|
+        puts x.join("")
     end
   end 
 
@@ -23,5 +20,3 @@ image = Image.new([
   [0, 0, 0, 0]
 ])
 image.output_image
-
-
