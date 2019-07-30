@@ -19,24 +19,19 @@ class Image
 
     cordinates.each do |xValue, yValue|
     
-    @row[xValue][yValue+1] = 1 unless yValue >= @row.length-1  
-    @row[xValue][yValue-1] = 1 unless yValue == 0  
-    @row[xValue-1][yValue] = 1 unless xValue == 0   
-    @row[xValue+1][yValue] = 1 unless xValue >= @row.length-1
+    @row[xValue][yValue+1] = 7 unless yValue >= @row.length-1  
+    @row[xValue][yValue-1] = 5 unless yValue == 0  
+    @row[xValue-1][yValue] = 4 unless xValue == 0   
+    @row[xValue+1][yValue] = 9 unless xValue >= @row.length-1
     end
-   
-    @row.each do |x|
-        puts x.join("")
-    end
+    print @row
   end
-
- 
 end
     
 image = Image.new([
+  [1, 0, 0, 1],
   [0, 0, 0, 0],
   [0, 0, 0, 0],
-  [0, 1, 0, 0],
-  [0, 0, 0, 0]
+  [1, 0, 0, 1]
 ])
 image.output_image
