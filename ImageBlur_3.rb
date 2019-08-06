@@ -18,13 +18,12 @@ class Image
     end
 
     cordinates.each do |xValue, yValue|
-
+   
     @row[xValue][yValue+1] = 1 unless yValue >= @row[yValue].length-1 
     @row[xValue][yValue-1] = 1 unless yValue == 0  
     @row[xValue-1][yValue] = 1 unless xValue == 0   
     @row[xValue+1][yValue] = 1 unless xValue >= @row.length-1
     end
-    print_image
   end
 
   def print_image
@@ -33,16 +32,30 @@ class Image
     end
   end
 
+  def blur(distance)  
+    distance.times do
+      output_image
+    end
+  end
+
+
 end
     
 image = Image.new([
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 1]
-  
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1]
 ])
 
+image.blur(3)
 
-image.output_image
+image.print_image
